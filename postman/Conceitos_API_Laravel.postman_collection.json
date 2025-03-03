@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8da33d53-f25f-4b63-a5e8-35707e9c48df",
+		"_postman_id": "92c7b217-a8e6-4848-95e7-cb11576cbd04",
 		"name": "Conceitos_API_Laravel",
 		"description": "Endpoints da API.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -364,6 +364,185 @@
 				}
 			],
 			"description": "Endpoints do módulo Livro."
+		},
+		{
+			"name": "Versiculos",
+			"item": [
+				{
+					"name": "Index",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/versiculo",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"versiculo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/versiculo",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"versiculo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/versiculo/{id}",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"versiculo",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/versiculo/{id}",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"versiculo",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Destroy",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/versiculo/{id}",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"versiculo",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints do módulo Versiculo."
 		}
 	]
 }

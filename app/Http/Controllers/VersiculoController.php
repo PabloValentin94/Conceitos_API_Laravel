@@ -4,16 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Testamento;
+use App\Models\Versiculo;
 
-class TestamentoController extends Controller
+class VersiculoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return Testamento::all();
+        return Versiculo::all();
     }
 
     /**
@@ -23,9 +23,12 @@ class TestamentoController extends Controller
     {
         $fields = $request->all();
 
-        return Testamento::create([
+        return Versiculo::create([
 
-            "nome" => $fields["nome"]
+            "indice_capitulo" => $fields["indice_capitulo"],
+            "indice_versiculo" => $fields["indice_versiculo"],
+            "texto" => $fields["texto"],
+            "fk_livro" => $fields["fk_livro"]
 
         ]);
     }
@@ -35,7 +38,7 @@ class TestamentoController extends Controller
      */
     public function show(string $id)
     {
-        return Testamento::findOrFail($id);
+        return Versiculo::findOrFail($id);
     }
 
     /**
@@ -43,7 +46,7 @@ class TestamentoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $register = Testamento::findOrFail($id);
+        $register = Versiculo::findOrFail($id);
 
         $register->update($request->all());
 
@@ -55,6 +58,6 @@ class TestamentoController extends Controller
      */
     public function destroy(string $id)
     {
-        return Testamento::destroy($id);
+        return Versiculo::destroy($id);
     }
 }

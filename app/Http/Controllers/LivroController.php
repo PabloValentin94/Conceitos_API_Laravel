@@ -46,8 +46,6 @@ class LivroController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $fields = $request->all();
-
         $register = Livro::findOrFail($id);
 
         $register->update($request->all());
