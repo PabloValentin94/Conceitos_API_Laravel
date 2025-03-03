@@ -10,5 +10,5 @@ class Testamento extends Model
 
     protected $primaryKey = "id"; // Definindo o campo referente à chave estrangeira da tabela especificada anteriormente.
 
-    protected $fillable = ["id", "nome"]; // Definindo os campos desta model que podem ser preenchidos em massa (Mass Assignment).
+    protected $fillable = ["nome"]; // Definindo os campos desta model que podem ser preenchidos em massa (Mass Assignment).
 }
