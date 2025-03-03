@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Versiculo;
 
+// Para usar o API Resoruce é preciso alterar o nome dos parâmetros "$id" pelo nome estabelecido no parâmetro "$name" desse recurso.
+
 class VersiculoController extends Controller
 {
     /**
@@ -36,17 +38,17 @@ class VersiculoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $versiculo)
     {
-        return Versiculo::findOrFail($id);
+        return Versiculo::findOrFail($versiculo);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $versiculo)
     {
-        $register = Versiculo::findOrFail($id);
+        $register = Versiculo::findOrFail($versiculo);
 
         $register->update($request->all());
 
@@ -56,8 +58,8 @@ class VersiculoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $versiculo)
     {
-        return Versiculo::destroy($id);
+        return Versiculo::destroy($versiculo);
     }
 }

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Livro;
 
+// Para usar o API Resoruce é preciso alterar o nome dos parâmetros "$id" pelo nome estabelecido no parâmetro "$name" desse recurso.
+
 class LivroController extends Controller
 {
     /**
@@ -36,17 +38,17 @@ class LivroController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $livro)
     {
-        return Livro::findOrFail($id);
+        return Livro::findOrFail($livro);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $livro)
     {
-        $register = Livro::findOrFail($id);
+        $register = Livro::findOrFail($livro);
 
         $register->update($request->all());
 
@@ -56,8 +58,8 @@ class LivroController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $livro)
     {
-        return Livro::destroy($id);
+        return Livro::destroy($livro);
     }
 }

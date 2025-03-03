@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Testamento;
 
+// Para usar o API Resoruce é preciso alterar o nome dos parâmetros "$id" pelo nome estabelecido no parâmetro "$name" desse recurso.
+
 class TestamentoController extends Controller
 {
     /**
@@ -33,17 +35,17 @@ class TestamentoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $testamento)
     {
-        return Testamento::findOrFail($id);
+        return Testamento::findOrFail($testamento);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $testamento)
     {
-        $register = Testamento::findOrFail($id);
+        $register = Testamento::findOrFail($testamento);
 
         $register->update($request->all());
 
@@ -53,8 +55,8 @@ class TestamentoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $testamento)
     {
-        return Testamento::destroy($id);
+        return Testamento::destroy($testamento);
     }
 }
