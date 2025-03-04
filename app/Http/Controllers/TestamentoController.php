@@ -25,11 +25,26 @@ class TestamentoController extends Controller
     {
         $fields = $request->all();
 
-        return Testamento::create([
+        $testamento_criado = Testamento::create([
 
             "nome" => $fields["nome"]
 
         ]);
+
+        if($testamento_criado)
+        {
+            return response()->json([
+
+                "message" => "Testamento criado com sucesso.",
+                "model" => $testamento_criado
+
+            ], 201);
+        }
+
+        else
+        {
+            return response()->json(["message" => "Erro ao criar o testamento!"], 404);
+        }
     }
 
     /**
@@ -37,7 +52,22 @@ class TestamentoController extends Controller
      */
     public function show(string $testamento)
     {
-        return Testamento::findOrFail($testamento);
+        $testamento_encontrado = Testamento::find($testamento);
+
+        if(isset($testamento_encontrado))
+        {
+            return response()->json([
+
+                "message" => "Testamento encontrado.",
+                "model" => $testamento_encontrado
+
+            ], 200);
+        }
+
+        else
+        {
+            return response()->json(["message" => "Testamento não encontrado!"], 404);
+        }
     }
 
     /**
@@ -47,9 +77,20 @@ class TestamentoController extends Controller
     {
         $register = Testamento::findOrFail($testamento);
 
-        $register->update($request->all());
+        if($register->update($request->all()))
+        {
+            return response()->json([
 
-        return $register;
+                "message" => "Testamento atualizado com sucesso.",
+                "model" => $register
+
+            ], 200);
+        }
+
+        else
+        {
+            return response()->json(["message" => "Erro ao atualizar o testamento!"], 404);
+        }
     }
 
     /**
@@ -57,6 +98,14 @@ class TestamentoController extends Controller
      */
     public function destroy(string $testamento)
     {
-        return Testamento::destroy($testamento);
+        if(Testamento::destroy($testamento))
+        {
+            return response()->json(["message" => "Testamento deletado com sucesso."], 200);
+        }
+
+        else
+        {
+            return response()->json(["message" => "Erro ao deletar o testamento!"], 404);
+        }
     }
 }

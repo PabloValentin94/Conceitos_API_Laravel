@@ -25,7 +25,7 @@ class LivroController extends Controller
     {
         $fields = $request->all();
 
-        return Livro::create([
+        $livro_criado = Livro::create([
 
             "nome" => $fields["nome"],
             "abreviacao" => $fields["abreviacao"],
@@ -33,6 +33,21 @@ class LivroController extends Controller
             "fk_testamento" => $fields["fk_testamento"]
 
         ]);
+
+        if($livro_criado)
+        {
+            return response()->json([
+
+                "message" => "Livro criado com sucesso.",
+                "model" => $livro_criado
+
+            ], 201);
+        }
+
+        else
+        {
+            return response()->json(["message" => "Erro ao criar o livro!"], 404);
+        }
     }
 
     /**
@@ -40,7 +55,22 @@ class LivroController extends Controller
      */
     public function show(string $livro)
     {
-        return Livro::findOrFail($livro);
+        $livro_encontrado = Livro::find($livro);
+
+        if(isset($livro_encontrado))
+        {
+            return response()->json([
+
+                "message" => "Livro encontrado.",
+                "model" => $livro_encontrado
+
+            ], 200);
+        }
+
+        else
+        {
+            return response()->json(["message" => "Livro não encontrado!"], 404);
+        }
     }
 
     /**
@@ -50,9 +80,20 @@ class LivroController extends Controller
     {
         $register = Livro::findOrFail($livro);
 
-        $register->update($request->all());
+        if($register->update($request->all()))
+        {
+            return response()->json([
 
-        return $register;
+                "message" => "Livro atualizado com sucesso.",
+                "model" => $register
+
+            ], 200);
+        }
+
+        else
+        {
+            return response()->json(["message" => "Erro ao atualizar o livro!"], 404);
+        }
     }
 
     /**
@@ -60,6 +101,14 @@ class LivroController extends Controller
      */
     public function destroy(string $livro)
     {
-        return Livro::destroy($livro);
+        if(Livro::destroy($livro))
+        {
+            return response()->json(["message" => "Livro deletado com sucesso."], 200);
+        }
+
+        else
+        {
+            return response()->json(["message" => "Erro ao deletar o livro!"], 404);
+        }
     }
 }

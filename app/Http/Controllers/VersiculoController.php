@@ -25,7 +25,7 @@ class VersiculoController extends Controller
     {
         $fields = $request->all();
 
-        return Versiculo::create([
+        $versiculo_criado = Versiculo::create([
 
             "indice_capitulo" => $fields["indice_capitulo"],
             "indice_versiculo" => $fields["indice_versiculo"],
@@ -33,6 +33,21 @@ class VersiculoController extends Controller
             "fk_livro" => $fields["fk_livro"]
 
         ]);
+
+        if($versiculo_criado)
+        {
+            return response()->json([
+
+                "message" => "Versículo criado com sucesso.",
+                "model" => $versiculo_criado
+
+            ], 201);
+        }
+
+        else
+        {
+            return response()->json(["message" => "Erro ao criar o versículo!"], 404);
+        }
     }
 
     /**
@@ -40,7 +55,22 @@ class VersiculoController extends Controller
      */
     public function show(string $versiculo)
     {
-        return Versiculo::findOrFail($versiculo);
+        $versiculo_encontrado = Versiculo::find($versiculo);
+
+        if(isset($versiculo_encontrado))
+        {
+            return response()->json([
+
+                "message" => "Versículo encontrado.",
+                "model" => $versiculo_encontrado
+
+            ], 200);
+        }
+
+        else
+        {
+            return response()->json(["message" => "Versículo não encontrado."], 404);
+        }
     }
 
     /**
@@ -50,9 +80,20 @@ class VersiculoController extends Controller
     {
         $register = Versiculo::findOrFail($versiculo);
 
-        $register->update($request->all());
+        if($register->update($request->all()))
+        {
+            return response()->json([
 
-        return $register;
+                "message" => "Versículo atualizado com sucesso.",
+                "model" => $register
+
+            ], 200);
+        }
+
+        else
+        {
+            return response()->json(["message" => "Erro ao atualizar o versículo!"], 404);
+        }
     }
 
     /**
@@ -60,6 +101,14 @@ class VersiculoController extends Controller
      */
     public function destroy(string $versiculo)
     {
-        return Versiculo::destroy($versiculo);
+        if(Versiculo::destroy($versiculo))
+        {
+            return response()->json(["message" => "Versículo deletado com sucesso."], 200);
+        }
+
+        else
+        {
+            return response()->json(["message" => "Erro ao deletar o versículo!"], 404);
+        }
     }
 }
