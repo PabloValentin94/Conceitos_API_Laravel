@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "92c7b217-a8e6-4848-95e7-cb11576cbd04",
+		"_postman_id": "5b526962-3d70-47a0-a201-a6b39e6252d5",
 		"name": "Conceitos_API_Laravel",
 		"description": "Endpoints da API.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -23,6 +23,11 @@
 							{
 								"key": "Accept",
 								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
 								"type": "text"
 							}
 						],
@@ -58,10 +63,15 @@
 								"key": "Accept",
 								"value": "application/json",
 								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/testamento",
+							"raw": "http://127.0.0.1:8000/api/testamento?nome=",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -73,6 +83,12 @@
 							"path": [
 								"api",
 								"testamento"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -91,6 +107,11 @@
 							{
 								"key": "Accept",
 								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
 								"type": "text"
 							}
 						],
@@ -127,6 +148,11 @@
 								"key": "Accept",
 								"value": "application/json",
 								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"type": "text"
 							}
 						],
 						"url": {
@@ -161,6 +187,11 @@
 							{
 								"key": "Accept",
 								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
 								"type": "text"
 							}
 						],
@@ -203,6 +234,11 @@
 								"key": "Accept",
 								"value": "application/json",
 								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"type": "text"
 							}
 						],
 						"url": {
@@ -237,10 +273,15 @@
 								"key": "Accept",
 								"value": "application/json",
 								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/livro",
+							"raw": "http://127.0.0.1:8000/api/livro?nome=&abreviacao=&posicao=&fk_testamento=",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -252,6 +293,24 @@
 							"path": [
 								"api",
 								"livro"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": ""
+								},
+								{
+									"key": "abreviacao",
+									"value": ""
+								},
+								{
+									"key": "posicao",
+									"value": ""
+								},
+								{
+									"key": "fk_testamento",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -270,6 +329,11 @@
 							{
 								"key": "Accept",
 								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
 								"type": "text"
 							}
 						],
@@ -306,6 +370,11 @@
 								"key": "Accept",
 								"value": "application/json",
 								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"type": "text"
 							}
 						],
 						"url": {
@@ -340,6 +409,11 @@
 							{
 								"key": "Accept",
 								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
 								"type": "text"
 							}
 						],
@@ -382,6 +456,11 @@
 								"key": "Accept",
 								"value": "application/json",
 								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"type": "text"
 							}
 						],
 						"url": {
@@ -416,10 +495,15 @@
 								"key": "Accept",
 								"value": "application/json",
 								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/versiculo",
+							"raw": "http://127.0.0.1:8000/api/versiculo?indice_capitulo=&indice_versiculo=&texto=&fk_livro=",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -431,6 +515,24 @@
 							"path": [
 								"api",
 								"versiculo"
+							],
+							"query": [
+								{
+									"key": "indice_capitulo",
+									"value": ""
+								},
+								{
+									"key": "indice_versiculo",
+									"value": ""
+								},
+								{
+									"key": "texto",
+									"value": ""
+								},
+								{
+									"key": "fk_livro",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -449,6 +551,11 @@
 							{
 								"key": "Accept",
 								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
 								"type": "text"
 							}
 						],
@@ -485,6 +592,11 @@
 								"key": "Accept",
 								"value": "application/json",
 								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"type": "text"
 							}
 						],
 						"url": {
@@ -520,6 +632,11 @@
 								"key": "Accept",
 								"value": "application/json",
 								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"type": "text"
 							}
 						],
 						"url": {
@@ -543,6 +660,146 @@
 				}
 			],
 			"description": "Endpoints do módulo Versiculo."
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/login?email=&password=",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": ""
+								},
+								{
+									"key": "password",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/register?name=&email=&password=&password_confirmation=",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"register"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": ""
+								},
+								{
+									"key": "email",
+									"value": ""
+								},
+								{
+									"key": "password",
+									"value": ""
+								},
+								{
+									"key": "password_confirmation",
+									"value": "",
+									"description": "Campo requisitado pelo Laravel para confirmar uma senha."
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/logout",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints das rotas de autenticação via Laravel Sanctum."
 		}
 	]
 }
