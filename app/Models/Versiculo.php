@@ -13,4 +13,11 @@ class Versiculo extends Model
     protected $fillable = ["indice_capitulo", "indice_versiculo", "texto", "fk_livro"]; // Definindo os campos deste model que podem ser preenchidos em massa (Mass Assignment).
 
     public $timestamps = true; // Definindo se a tabela referente a este model utilizará timestamps de controle de alteração do conteúdo de registros.
+
+    // Método que associa o model de um versículo ao do seu livro.
+
+    public function livro()
+    {
+        return $this->belongsTo("App\Models\Livro", "fk_livro", "id");
+    }
 }

@@ -15,7 +15,13 @@ class LivroController extends Controller
      */
     public function index()
     {
-        return Livro::all();
+        // Retorna todos os registros imediatamente.
+
+        // return Livro::all();
+
+        // Permite modificar a consulta antes de executá-la. É útil para carregar relacionamentos do objeto da model.
+
+        return Livro::with(["testamento", "versiculos"])->get();
     }
 
     /**
@@ -55,7 +61,12 @@ class LivroController extends Controller
      */
     public function show(string $livro)
     {
-        $livro_encontrado = Livro::find($livro);
+        /*
+            Os relacionamentos da model não são carregados automaticamente na instância de um objeto. Para resolver
+            isso, use o método "with" da model desejada e passe os relacionamentos necessários como parâmetro.
+        */
+
+        $livro_encontrado = Livro::with(["testamento", "versiculos"])->find($livro);
 
         if(isset($livro_encontrado))
         {

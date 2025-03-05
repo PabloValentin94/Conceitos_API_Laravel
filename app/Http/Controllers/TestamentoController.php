@@ -15,7 +15,13 @@ class TestamentoController extends Controller
      */
     public function index()
     {
-        return Testamento::all();
+        // Retorna todos os registros imediatamente.
+
+        // return Testamento::all();
+
+        // Permite modificar a consulta antes de executá-la. É útil para carregar relacionamentos do objeto da model.
+
+        return Testamento::with("livros")->get();
     }
 
     /**
@@ -52,7 +58,12 @@ class TestamentoController extends Controller
      */
     public function show(string $testamento)
     {
-        $testamento_encontrado = Testamento::find($testamento);
+        /*
+            Os relacionamentos da model não são carregados automaticamente na instância de um objeto. Para resolver
+            isso, use o método "with" da model desejada e passe os relacionamentos necessários como parâmetro.
+        */
+
+        $testamento_encontrado = Testamento::with("livros")->find($testamento);
 
         if(isset($testamento_encontrado))
         {

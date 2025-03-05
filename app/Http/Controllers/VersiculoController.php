@@ -15,7 +15,13 @@ class VersiculoController extends Controller
      */
     public function index()
     {
-        return Versiculo::all();
+        // Retorna todos os registros imediatamente.
+
+        // return Versiculo::all();
+
+        // Permite modificar a consulta antes de executá-la. É útil para carregar relacionamentos do objeto da model.
+
+        return Versiculo::with("livro")->get();
     }
 
     /**
@@ -55,7 +61,12 @@ class VersiculoController extends Controller
      */
     public function show(string $versiculo)
     {
-        $versiculo_encontrado = Versiculo::find($versiculo);
+        /*
+            Os relacionamentos da model não são carregados automaticamente na instância de um objeto. Para resolver
+            isso, use o método "with" da model desejada e passe os relacionamentos necessários como parâmetro.
+        */
+
+        $versiculo_encontrado = Versiculo::with("livro")->find($versiculo);
 
         if(isset($versiculo_encontrado))
         {
