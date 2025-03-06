@@ -60,7 +60,7 @@ class AuthController extends Controller
         {
             return response()->json([
 
-                "message" => "Erro ao efetuar o login!"
+                "message" => "Erro ao efetuar o login! Verifique seus dados e se realmente está cadastrado."
 
             ], 401);
         }
@@ -79,8 +79,26 @@ class AuthController extends Controller
         }
     }
 
-    public function logout()
+    public function logout($id)
     {
-        return response()->json(["message" => "Será implementado em breve."], 404);
+        $user = User::find($id);
+
+        if(isset($user))
+        {
+            $qnt_tokens_excluidos = $user->tokens()->delete();
+
+            return response()->json([
+
+                "message" => "Tokens de acesso excluídos com sucesso.",
+                "number of tokens deleted" => $qnt_tokens_excluidos,
+                "user" => $user
+
+            ], 200);
+        }
+
+        else
+        {
+            return response()->json(["message" => "Usuário não encontrado!"], 404);
+        }
     }
 }

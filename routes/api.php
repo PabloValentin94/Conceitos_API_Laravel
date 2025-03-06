@@ -16,7 +16,7 @@ use App\Http\Controllers\
 
 Route::post("user/register", [AuthController::class, "register"]);
 Route::post("user/login", [AuthController::class, "login"]);
-Route::get("user/logout", [AuthController::class, "logout"]);
+Route::get("user/logout/{id}", [AuthController::class, "logout"]);
 
 // Impedindo que as rotas sejam executadas sem o uso de tokens de acesso do Sanctum.
 

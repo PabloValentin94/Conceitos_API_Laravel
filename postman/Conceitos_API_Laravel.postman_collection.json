@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "5b526962-3d70-47a0-a201-a6b39e6252d5",
+		"_postman_id": "fa0fd619-94a0-4c5d-8052-33b39f332dcf",
 		"name": "Conceitos_API_Laravel",
 		"description": "Endpoints da API.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -780,7 +780,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/user/logout",
+							"raw": "http://127.0.0.1:8000/api/user/logout/{id}",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -792,7 +792,8 @@
 							"path": [
 								"api",
 								"user",
-								"logout"
+								"logout",
+								"{id}"
 							]
 						}
 					},
